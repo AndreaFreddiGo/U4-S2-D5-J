@@ -30,6 +30,14 @@ public class Videogioco extends Gioco {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Videogioco{" +
+                "durataOre=" + durataOre +
+                ", piattaforma='" + piattaforma + '\'' +
+                ", genere=" + genere +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", id='" + id + '\'' +
+                ", prezzo=" + prezzo +
+                ", titolo='" + titolo + '\'' +
+                '}';
     }
 }

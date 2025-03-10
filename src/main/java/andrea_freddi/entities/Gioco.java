@@ -2,8 +2,8 @@ package andrea_freddi.entities;
 
 import java.util.UUID;
 
-// creo la classe astratta Gioco (astratta perché non deve essere direttamente istanziata)
-abstract class Gioco {
+// creo la classe Gioco
+public class Gioco {
     protected String id;
     protected String titolo;
     protected int annoPubblicazione;
@@ -40,6 +40,11 @@ abstract class Gioco {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Gioco{" +
+                "annoPubblicazione=" + annoPubblicazione +
+                ", id='" + id + '\'' +
+                ", titolo='" + titolo + '\'' +
+                ", prezzo=" + prezzo +
+                '}';
     }
 }

@@ -20,6 +20,13 @@ public class GiocoDaTavolo extends Gioco {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "GiocoDaTavolo{" +
+                "durata=" + durata +
+                ", numeroGiocatori=" + numeroGiocatori +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", id='" + id + '\'' +
+                ", prezzo=" + prezzo +
+                ", titolo='" + titolo + '\'' +
+                '}';
     }
 }

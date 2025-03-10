@@ -13,13 +13,13 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         Collezione collezione = new Collezione();
 
-        collezione.aggiungiGioco(new Videogioco(2018, 28.50, "Red Dead Redemption 2", 50, Genere.RPG, "PC"));
-        collezione.aggiungiGioco(new Videogioco(2018, 57.00, "Sea of Thieves", 30, Genere.AVVENTURA, "XBOX"));
-        collezione.aggiungiGioco(new Videogioco(2017, 18.75, "Fortnite", 100, Genere.SPARATUTTO, "PS5"));
-        collezione.aggiungiGioco(new Videogioco(2020, 38.20, "FIFA 21", 40, Genere.SPORT, "PC"));
-        collezione.aggiungiGioco(new Videogioco(2020, 47.50, "Cyberpunk 2077", 60, Genere.RPG, "PS4"));
-        collezione.aggiungiGioco(new Videogioco(2018, 21.30, "Among Us", 100, Genere.PUZZLE, "PC"));
-        collezione.aggiungiGioco(new Videogioco(2014, 35.00, "The Sims 4", 40, Genere.SIMULAZIONE, "PC"));
+        collezione.aggiungiGioco(new Videogioco(2018, 28.50, "Red Dead Redemption 2", 50, Genere.MMORPG, "PS4"));
+        collezione.aggiungiGioco(new Videogioco(2018, 47.00, "Sea of Thieves", 30, Genere.AVVENTURA, "XBOX"));
+        collezione.aggiungiGioco(new Videogioco(1993, 18.75, "DOOM", 100, Genere.SPARATUTTO, "PC"));
+        collezione.aggiungiGioco(new Videogioco(1993, 15.20, "FIFA International Soccer", 5, Genere.SPORT, "PC"));
+        collezione.aggiungiGioco(new Videogioco(1996, 27.50, "Diablo", 20, Genere.RPG, "PC"));
+        collezione.aggiungiGioco(new Videogioco(2017, 21.30, "Slaps & Beans", 5, Genere.PICCHIADURO, "PC"));
+        collezione.aggiungiGioco(new Videogioco(2000, 35.00, "The Sims", 40, Genere.SIMULAZIONE, "PC"));
 
         collezione.aggiungiGioco(new GiocoDaTavolo(1935, 27.99, "Monopoli", 3, 8));
         collezione.aggiungiGioco(new GiocoDaTavolo(1957, 55.50, "Risiko", 4, 6));
@@ -49,10 +49,10 @@ public class Application {
                     System.out.println("Inserisci il titolo del gioco:");
                     String titolo = scanner.nextLine();
                     System.out.println("Inserisci l'anno di uscita:");
-                    int annoUscita = scanner.nextInt();
+                    int annoUscita = Integer.parseInt(scanner.nextLine());
                     scanner.nextLine();
                     System.out.println("Inserisci il prezzo:");
-                    double prezzo = scanner.nextDouble();
+                    double prezzo = Double.parseDouble(scanner.nextLine());
                     scanner.nextLine();
                     System.out.println("Inserisci il genere:");
                     Genere genere = Genere.valueOf(scanner.nextLine().toUpperCase());
@@ -64,10 +64,10 @@ public class Application {
                         collezione.aggiungiGioco(new Videogioco(annoUscita, prezzo, titolo, 0, genere, piattaforma));
                     } else if (tipoGioco.equalsIgnoreCase("gioco da tavolo")) {
                         System.out.println("Inserisci il numero minimo di giocatori:");
-                        int minGiocatori = scanner.nextInt();
+                        int minGiocatori = Integer.parseInt(scanner.nextLine());
                         scanner.nextLine();
                         System.out.println("Inserisci il numero massimo di giocatori:");
-                        int maxGiocatori = scanner.nextInt();
+                        int maxGiocatori = Integer.parseInt(scanner.nextLine());
                         scanner.nextLine();
                         collezione.aggiungiGioco(new GiocoDaTavolo(annoUscita, prezzo, titolo, minGiocatori, maxGiocatori));
                     }
@@ -81,7 +81,7 @@ public class Application {
                     System.out.println("Inserisci l'ID del gioco da aggiornare:");
                     String idAggiornamento = scanner.nextLine();
                     System.out.println("Inserisci il nuovo prezzo:");
-                    double nuovoPrezzo = scanner.nextDouble();
+                    double nuovoPrezzo = Double.parseDouble(scanner.nextLine());
                     scanner.nextLine();
                     collezione.aggiornaGioco(idAggiornamento, nuovoPrezzo);
                     break;
@@ -92,17 +92,20 @@ public class Application {
                     break;
                 case 5:
                     System.out.println("Inserisci il prezzo massimo:");
-                    double prezzoMassimo = scanner.nextDouble();
+                    double prezzoMassimo = Double.parseDouble(scanner.nextLine());
                     scanner.nextLine();
-                    System.out.println(collezione.ricercaPerPrezzo(prezzoMassimo));
+                    collezione.ricercaPerPrezzo(prezzoMassimo)
+                            .forEach(System.out::println);
                     break;
                 case 6:
                     System.out.println("Inserisci il numero di giocatori:");
-                    int numeroGiocatori = scanner.nextInt();
+                    int numeroGiocatori = Integer.parseInt(scanner.nextLine());
                     scanner.nextLine();
-                    System.out.println(collezione.ricercaPerGiocatori(numeroGiocatori));
+                    collezione.ricercaPerGiocatori(numeroGiocatori)
+                            .forEach(System.out::println);
                     break;
                 case 7:
+                    System.out.println("Arrivederci!");
                     esecuzioneGestoreCollezione = false;
                     break;
             }

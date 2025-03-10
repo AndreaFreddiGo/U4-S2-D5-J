@@ -6,7 +6,7 @@ public enum Genere {
     AVVENTURA,
     STRATEGIA,
     SPORT,
-    PUZZLE,
+    PICCHIADURO,
     SIMULAZIONE,
     RPG,
     MMORPG,
